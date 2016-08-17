@@ -1,8 +1,8 @@
 /*
 * @Author: doanlich
 * @Date:   2016-07-29 09:04:16
-* @Last Modified by:   Lich
-* @Last Modified time: 2016-08-07 22:31:43
+* @Last Modified by:   doanlich
+* @Last Modified time: 2016-08-17 14:44:15
 */
 var checkboxName = 'tree_checkbox';
 
@@ -73,7 +73,7 @@ function processParentClick(checkbox)
 
 function addSelectedItem(checkbox)
 {
-    var group = '<span class="pull-right text-right"><span class="label label-info flat">'+$(checkbox).data('parent')+'</span></span>';
+    var group = '<span class="pull-right text-right"><span class="label label-info flat">'+$('label[for="checkbox-'+$(checkbox).data('parent')+'"]').text().trim()+'</span></span>';
     if(!checkbox.hasAttribute('data-parent')) {
         group = '';
     }

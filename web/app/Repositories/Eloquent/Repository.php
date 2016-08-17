@@ -3,7 +3,7 @@
  * @Author: Lich
  * @Date:   2016-08-17 00:05:12
  * @Last Modified by:   doanlich
- * @Last Modified time: 2016-08-17 09:30:02
+ * @Last Modified time: 2016-08-17 15:14:54
  */
 namespace App\Repositories\Eloquent;
 

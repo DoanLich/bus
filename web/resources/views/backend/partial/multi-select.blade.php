@@ -60,7 +60,7 @@
                                                 <div class="title-checkbox checkbox3 checkbox-check checkbox-light">
                                                     <input onclick="processParentClick(this)" value="{{ $checkboxData['group'] }}" type="checkbox" id="checkbox-{{ $checkboxData['group'] }}">
                                                     <label for="checkbox-{{ $checkboxData['group'] }}">
-                                                        {{ $checkboxData['group'] }}
+                                                        {{ $checkboxData['group_name'] }}
                                                     </label>
                                                 </div>
                                                 <span data-toggle="collapse" data-target="#{{ $checkboxData['group'] }}" aria-expanded="false" aria-controls="collapseExample" class="count collapsed"><i class="fa-chevron-circle-up fa text-info"></i></span>

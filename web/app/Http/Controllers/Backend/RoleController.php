@@ -202,6 +202,9 @@ class RoleController extends BackendController
         $checkboxDatas = $this->permission->getAssignList();
 
         $assignedPermission = $role->permissions;
+        $assignedPermission->each(function ($permission) {
+            $permission->group_name = $permission->getGroupName();
+        });
 
         $checkboxDatas = $checkboxDatas->merge($assignedPermission);
 

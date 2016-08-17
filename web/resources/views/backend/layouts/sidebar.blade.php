@@ -16,21 +16,21 @@
                         @if($menu->route != null)
                         <li {!! $menu->isActive() || (isset($active_menu) && $active_menu == $menu->index) ? 'class="active"' : '' !!}>
                             <a href="{{ route($menu->route) }}">
-                                <span class="icon fa fa-{{ $menu->icon != null ? $menu->icon : 'circle-o' }}"></span><span class="title">{{ $menu->getName() }}</span>
+                                <span class="icon fa fa-{{ $menu->icon != null ? $menu->icon : 'circle-o' }}"></span><span class="title">{{ $menu->name }}</span>
                             </a>
                         </li>
                         @else
                             @if(count($menu->getChildMenu()) > 0)
                             <li class="panel panel-default dropdown {!! $menu->isActive() || (isset($active_menu) && $active_menu == $menu->index) ? 'active' : '' !!}">
                                 <a data-toggle="collapse" href="#dropdown-{{ $menu->index }}">
-                                    <span class="icon fa fa-{{ $menu->icon }}"></span><span class="title">{{ $menu->getName() }}</span>
+                                    <span class="icon fa fa-{{ $menu->icon }}"></span><span class="title">{{ $menu->name }}</span>
                                 </a>
                                 <!-- Dropdown level 1 -->
                                 <div id="dropdown-{{ $menu->index }}" class="panel-collapse collapse {!! $menu->isActive() || (isset($active_menu) && $active_menu == $menu->index) ? 'in' : '' !!}">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav">
                                             @foreach($menu->getChildMenu() as $child)
-                                                <li {!! $child->isActive() ? 'class="current"' : '' !!}><a href="{{ route($child->route) }}"><span class="icon fa fa-{{ $child->icon }}"></span> {{ $child->getName() }}</a></li>
+                                                <li {!! $child->isActive() ? 'class="current"' : '' !!}><a href="{{ route($child->route) }}"><span class="icon fa fa-{{ $child->icon }}"></span> {{ $child->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>

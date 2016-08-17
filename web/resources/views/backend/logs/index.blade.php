@@ -71,13 +71,23 @@
             "order": [ 1, 'desc' ],
             "stateSave": true,
             "stateSaveCallback": function (settings, data) {
-            window.localStorage.setItem("datatable", JSON.stringify(data));
-        },
-        "stateLoadCallback": function (settings) {
-            var data = JSON.parse(window.localStorage.getItem("datatable"));
-            if (data) data.start = 0;
-            return data;
-        }
+                window.localStorage.setItem("datatable", JSON.stringify(data));
+            },
+            "stateLoadCallback": function (settings) {
+                var data = JSON.parse(window.localStorage.getItem("datatable"));
+                if (data) data.start = 0;
+                return data;
+            },
+            "oLanguage": {
+                "oPaginate": {
+                    "sNext": "{{ trans('pagination.next') }}",
+                    "sPrevious": "{{ trans('pagination.previous') }}"
+                },
+                "sInfo": "{{ trans('backend/datatables.sInfo') }}",
+                sLengthMenu: "{{ trans('backend/datatables.sLengthMenu') }}",
+                sSearch: "{{ trans('backend/datatables.sSearch') }}",
+                sProcessing: '<img src="{{ url('images/loading.gif') }}">',
+            },
         });
         $('#table-log').on('click', '.expand', function(){
             $('#common-modal .modal-title').html('{{ trans('backend/systems.detail') }}');

@@ -3,7 +3,7 @@
  * @Author: Lich
  * @Date:   2016-08-07 21:20:57
  * @Last Modified by:   doanlich
- * @Last Modified time: 2016-08-17 09:42:08
+ * @Last Modified time: 2016-08-17 14:53:51
  */
 namespace App\Repositories;
 
@@ -37,6 +37,10 @@ class PermissionRepository extends Repository
         $defaultPermissions = $this->getPermissionIdOfDefaultRole();
 
         $permissions = $permissions->forget($defaultPermissions);
+
+        $permissions->each(function ($permission) {
+            $permission->group_name = $permission->getGroupName();
+        });
 
         return $permissions;
     }

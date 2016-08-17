@@ -2,21 +2,21 @@
 /**
  * @Author: doanlich
  * @Date:   2016-07-22 10:17:00
- * @Last Modified by:   Lich
- * @Last Modified time: 2016-08-15 22:15:24
+ * @Last Modified by:   doanlich
+ * @Last Modified time: 2016-08-17 16:21:44
  */
 return [
     'status_list' => [
-        0 => 'Block',
-        1 => 'Active'
+        0 => 'Khóa',
+        1 => 'Hoạt động'
     ],
     'default_list' => [
-        0 => 'No',
-        1 => 'Yes'
+        0 => 'Có',
+        1 => 'Không'
     ],
     'system_list' => [
-        0 => 'No',
-        1 => 'Yes'
+        0 => 'Có',
+        1 => 'Không'
     ],
 
     'active_status' => 1,

@@ -51,12 +51,12 @@ class AdminMenu extends Model
         return $menus;
     }
 
-    public function getName()
+    public function getNameAttribute($value)
     {
         if(\Lang::has('backend/menus.'.$this->index, app()->getLocale(), false)) {
             return trans('backend/menus.'.$this->index);
         }
 
-        return $this->name;
+        return $value;
     }
 }

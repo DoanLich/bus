@@ -39,4 +39,17 @@ class Permission extends Model
     {
         return $this->isActive() ? config('constant.active_status_color') : config('constant.block_status_color');
     }
+
+    public function getNameAttribute($value) {
+        if(\Lang::has('backend/permissions.'.$this->index, app()->getLocale(), true)) {
+            return trans('backend/permissions.'.$this->index);
+        }
+
+        return $value;
+    }
+
+    public function getGroupName()
+    {
+        return \Lang::has('backend/permission_groups.'.$this->group, app()->getLocale(), true) ? trans('backend/permission_groups.'.$this->group) : $this->group;
+    }
 }
