@@ -1,0 +1,15 @@
+/*
+* @Author: doanlich
+* @Date:   2016-07-27 15:49:38
+* @Last Modified by:   doanlich
+* @Last Modified time: 2016-08-16 14:37:56
+*/
+table.dataTable > tbody > tr.child ul li{
+    text-align: left;
+}
+table.dataTable > tbody > tr td.dt-body-center{
+    text-align: center;
+}
+table.dataTable > tbody > tr td.dt-body-right{
+    text-align: right;
+}

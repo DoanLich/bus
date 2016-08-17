@@ -1,0 +1,50 @@
+/*
+* @Author: doanlich
+* @Date:   2016-07-29 09:03:04
+* @Last Modified by:   Lich
+* @Last Modified time: 2016-08-09 21:02:35
+*/
+.multiselect .selection{
+    padding: 10px;
+}
+.multiselect .selected{
+    padding: 10px;
+}
+.multiselect .selection .item{
+    padding-left: 20px;
+}
+.multiselect .selection .title{
+    display: inline-block;
+}
+.multiselect .selection .title .title-checkbox{
+    float: left;
+}
+.multiselect .selection .title .count{
+    float: left;
+    margin: 2px 5px;
+    cursor: pointer;
+}
+.checkbox3 label{
+    white-space: normal;
+}
+.multiselect .selected .form-control{
+    height: auto;
+}
+.multiselect .selected .item{
+    padding-bottom: 5px;
+}
+.multiselect .selected .form-control{
+    display: inline-flex;
+}
+.multiselect .selected .form-control .pull-right{
+    flex: 1;
+}
+.count.collapsed i{
+    transform: rotate(180deg);
+}
+.multiselect .card-header{
+    background: #2C3E50;
+}
+.multiselect .card-header .title{
+    color: #fff !important;
+}
