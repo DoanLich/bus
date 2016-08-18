@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\BackendController;
 
 class LogController extends BackendController
 {
+    protected $entity = 'log_file';
     public function index(Request $request)
     {
         if(!$this->authUser->hasSystemRole()) {
@@ -25,7 +26,7 @@ class LogController extends BackendController
             return response()->download(LogRepository::pathToLogFile(base64_decode($request->download)));
         } elseif ($request->has('delete')) {
             File::delete(LogRepository::pathToLogFile(base64_decode($request->delete)));
-            Session::flash('success', trans('backend/messages.delete_success', ['entity' => 'log file']));
+            Session::flash('success', trans('backend/messages.delete_success', ['entity' => trans('entities.'.$this->entity)]));
             $result = ['res' => 1, 'url' => $request->url()];
             return json_encode($result);
         }

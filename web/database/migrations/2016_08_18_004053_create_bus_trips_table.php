@@ -12,7 +12,21 @@ class CreateBusTripsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('bus_trips', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('start_location')->unsigned()->nullbale();
+            $table->integer('end_location')->unsigned()->nullbale();
+            $table->string('start_time', 16)->nullable();
+            $table->string('end_time', 16)->nullable();
+            $table->string('seat_type')->nullable();
+            $table->integer('seat_count')->nullable();
+            $table->double('price')->nullable();
+            $table->boolean('status')->default(true);
+            $table->softDeletes();
+            $table->timestamps();
+            $table->foreign('start_location')->references('id')->on('locations')->onDelete('set null');
+            $table->foreign('end_location')->references('id')->on('locations')->onDelete('set null');
+        });
     }
 
     /**
@@ -22,6 +36,6 @@ class CreateBusTripsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('bus_trips');
     }
 }

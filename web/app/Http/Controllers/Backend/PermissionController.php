@@ -167,11 +167,10 @@ class PermissionController extends BackendController
             }
 
             DB::commit();
-            Session::flash('success', trans('backend/messages.save_success', ['entity' => $this->entity]));
+            Session::flash('success', trans('backend/messages.save_success', ['entity' => trans('entities.'.$this->entity)]));
         } catch (Exception $e) {
-            dd($e->getMessage());
             DB::rollback();
-            Session::flash('error', trans('backend/messages.save_failed', ['entity' => $this->entity]));
+            Session::flash('error', trans('backend/messages.save_failed', ['entity' => trans('entities.'.$this->entity)]));
             return redirect()->back()->withInput();
         }
 
@@ -223,11 +222,10 @@ class PermissionController extends BackendController
             }
 
             DB::commit();
-            Session::flash('success', trans('backend/messages.save_success', ['entity' => $this->entity]));
+            Session::flash('success', trans('backend/messages.save_success', ['entity' => trans('entities.'.$this->entity)]));
         } catch (Exception $e) {
-            dd($e->getMessage());
             DB::rollback();
-            Session::flash('error', trans('backend/messages.save_failed', ['entity' => $this->entity]));
+            Session::flash('error', trans('backend/messages.save_failed', ['entity' => trans('entities.'.$this->entity)]));
             return redirect()->back()->withInput();
         }
 
@@ -239,14 +237,14 @@ class PermissionController extends BackendController
         $permission = $this->permission->findOrFail($id);
         $this->authorizeForAdmin('delete', $permission);
 
-        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => $this->entity])];
+        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => trans('entities.'.$this->entity)])];
 
         DB::beginTransaction();
         try{
             $deleted = $permission->delete();
 
             if($deleted) {
-                Session::flash('success', trans('backend/messages.delete_success', ['entity' => $this->entity]));
+                Session::flash('success', trans('backend/messages.delete_success', ['entity' => trans('entities.'.$this->entity)]));
                 $result = ['res' => 1, 'url' => route('admin.permissions.index')];
             }
             DB::commit();
@@ -266,7 +264,7 @@ class PermissionController extends BackendController
 
         $selected = explode(',', $selected);
 
-        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => $this->entity])];
+        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => trans('entities.'.$this->entity)])];
 
         DB::beginTransaction();
         try {
@@ -283,7 +281,7 @@ class PermissionController extends BackendController
             }
 
             DB::commit();
-            session()->flash('success', trans('backend/messages.delete_success', ['entity' => $this->entity]));
+            session()->flash('success', trans('backend/messages.delete_success', ['entity' => trans('entities.'.$this->entity)]));
             $result = ['res' => 1, 'url' => route('admin.permissions.index')];
         } catch(Exception $e) {
             DB::rollback();

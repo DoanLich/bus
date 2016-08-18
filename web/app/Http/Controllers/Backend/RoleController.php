@@ -173,10 +173,10 @@ class RoleController extends BackendController
             $role->permissions()->attach($permissions);
 
             DB::commit();
-            Session::flash('success', trans('backend/messages.save_success', ['entity' => $this->entity]));
+            Session::flash('success', trans('backend/messages.save_success', ['entity' => trans('entities.'.$this->entity)]));
         } catch (Exception $e) {
             DB::rollback();
-            Session::flash('error', trans('backend/messages.save_failed', ['entity' => $this->entity]));
+            Session::flash('error', trans('backend/messages.save_failed', ['entity' => trans('entities.'.$this->entity)]));
             return redirect()->back()->withInput();
         }
 
@@ -247,10 +247,10 @@ class RoleController extends BackendController
             $role->permissions()->sync($permissions);
 
             DB::commit();
-            Session::flash('success', trans('backend/messages.save_success', ['entity' => $this->entity]));
+            Session::flash('success', trans('backend/messages.save_success', ['entity' => trans('entities.'.$this->entity)]));
         } catch (Exception $e) {
             DB::rollback();
-            Session::flash('error', trans('backend/messages.save_failed', ['entity' => $this->entity]));
+            Session::flash('error', trans('backend/messages.save_failed', ['entity' => trans('entities.'.$this->entity)]));
             return redirect()->back()->withInput();
         }
 
@@ -262,14 +262,14 @@ class RoleController extends BackendController
         $role = $this->role->findOrFail($id);
         $this->authorizeForAdmin('delete', $role);
 
-        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => $this->entity])];
+        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => trans('entities.'.$this->entity)])];
 
         DB::beginTransaction();
         try{
             $deleted = $role->delete();
 
             if($deleted) {
-                Session::flash('success', trans('backend/messages.delete_success', ['entity' => $this->entity]));
+                Session::flash('success', trans('backend/messages.delete_success', ['entity' => trans('entities.'.$this->entity)]));
                 $result = ['res' => 1, 'url' => route('admin.roles.index')];
             }
             DB::commit();
@@ -289,7 +289,7 @@ class RoleController extends BackendController
 
         $selected = explode(',', $selected);
 
-        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => $this->entity])];
+        $result = ['res' => 0, 'error' => trans('backend/messages.delete_failed', ['entity' => trans('entities.'.$this->entity)])];
 
         DB::beginTransaction();
         try {
@@ -306,7 +306,7 @@ class RoleController extends BackendController
             }
 
             DB::commit();
-            session()->flash('success', trans('backend/messages.delete_success', ['entity' => $this->entity]));
+            session()->flash('success', trans('backend/messages.delete_success', ['entity' => trans('entities.'.$this->entity)]));
             $result = ['res' => 1, 'url' => route('admin.roles.index')];
         } catch(Exception $e) {
             DB::rollback();

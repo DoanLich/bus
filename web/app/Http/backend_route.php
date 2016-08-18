@@ -2,8 +2,8 @@
 /**
  * @Author: Lich
  * @Date:   2016-07-17 14:36:23
- * @Last Modified by:   Lich
- * @Last Modified time: 2016-08-15 22:26:15
+ * @Last Modified by:   doanlich
+ * @Last Modified time: 2016-08-18 14:41:31
  */
 
 ///////////////////
@@ -218,6 +218,51 @@ Route::group([
 			Route::match(['get', 'post'], '/', [
 				'as' => 'index',
 				'uses' => 'LogController@index'
+			]);
+		});
+
+		//////////////////////
+		// Admin user route //
+		//////////////////////
+		Route::group([
+			'prefix' => 'locations',
+			'as' => 'locations.'
+		], function () {
+			Route::get('/', [
+				'as' => 'index',
+				'uses' => 'LocationController@index'
+			]);
+			Route::get('/list-as-json', [
+				'as' => 'list_as_json',
+				'uses' => 'LocationController@getLocationListAsJson'
+			]);
+			Route::get('/view/{id}', [
+				'as' => 'view',
+				'uses' => 'LocationController@getView'
+			]);
+			Route::get('/add', [
+				'as' => 'add',
+				'uses' => 'LocationController@getAdd'
+			]);
+			Route::post('/store', [
+				'as' => 'store',
+				'uses' => 'LocationController@postAdd'
+			]);
+			Route::get('/edit/{id}', [
+				'as' => 'edit',
+				'uses' => 'LocationController@getEdit'
+			]);
+			Route::post('/update/{id}', [
+				'as' => 'update',
+				'uses' => 'LocationController@postEdit'
+			]);
+			Route::post('/delete/{id}', [
+				'as' => 'delete',
+				'uses' => 'LocationController@postDelete'
+			]);
+			Route::post('/delete-selected', [
+				'as' => 'delete_selected',
+				'uses' => 'LocationController@postDeleteSelected'
 			]);
 		});
 	});

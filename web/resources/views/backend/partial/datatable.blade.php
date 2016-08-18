@@ -88,6 +88,8 @@
                 sLengthMenu: "{{ trans('backend/datatables.sLengthMenu') }}",
                 sSearch: "{{ trans('backend/datatables.sSearch') }}",
                 sProcessing: '<img src="{{ url('images/loading.gif') }}">',
+                sInfoEmpty: "{{ trans('backend/datatables.sInfoEmpty') }}",
+                sEmptyTable: "{{ trans('backend/datatables.sEmptyTable') }}",
             },
             initComplete: function () {
                 this.api().columns().every(function () {
