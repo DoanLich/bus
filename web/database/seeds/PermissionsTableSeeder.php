@@ -158,6 +158,48 @@ class PermissionsTableSeeder extends Seeder
                 'description' => 'View admin user detail',
                 'status'      => true,
                 'group'       => 'admin_user'
+            ],
+            // Location
+            [
+                'id'          => 18,
+                'parent_id'   => null,
+                'index'       => 'locations.list',
+                'name'        => 'Location list',
+                'description' => 'Access location list',
+                'status'      => true,
+                'group'       => 'location'
+            ], [
+                'id'          => 19,
+                'parent_id'   => 18,
+                'index'       => 'locations.add',
+                'name'        => 'Add location',
+                'description' => 'Add location',
+                'status'      => true,
+                'group'       => 'location'
+            ], [
+                'id'          => 20,
+                'parent_id'   => 18,
+                'index'       => 'locations.edit',
+                'name'        => 'Edit location',
+                'description' => 'Edit location',
+                'status'      => true,
+                'group'       => 'location'
+            ], [
+                'id'          => 21,
+                'parent_id'   => 18,
+                'index'       => 'locations.delete',
+                'name'        => 'Delete location',
+                'description' => 'Delete location',
+                'status'      => true,
+                'group'       => 'location'
+            ], [
+                'id'          => 22,
+                'parent_id'   => 18,
+                'index'       => 'locations.view',
+                'name'        => 'View location detail',
+                'description' => 'View location detail',
+                'status'      => true,
+                'group'       => 'location'
             ]
         ];
 

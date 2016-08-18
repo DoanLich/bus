@@ -3,7 +3,7 @@
  * @Author: Lich
  * @Date:   2016-07-17 14:36:23
  * @Last Modified by:   doanlich
- * @Last Modified time: 2016-08-18 14:41:31
+ * @Last Modified time: 2016-08-18 16:21:01
  */
 
 ///////////////////
@@ -264,6 +264,51 @@ Route::group([
 				'as' => 'delete_selected',
 				'uses' => 'LocationController@postDeleteSelected'
 			]);
+		});
+
+		//////////////////////
+		// Bus trip route //
+		//////////////////////
+		Route::group([
+			'prefix' => 'bus-trips',
+			'as' => 'bus_trips.'
+		], function () {
+			Route::get('/', [
+				'as' => 'index',
+				'uses' => 'BusTripController@index'
+			]);
+			Route::get('/list-as-json', [
+				'as' => 'list_as_json',
+				'uses' => 'BusTripController@getBusTripListAsJson'
+			]);
+			// Route::get('/view/{id}', [
+			// 	'as' => 'view',
+			// 	'uses' => 'BusTripController@getView'
+			// ]);
+			// Route::get('/add', [
+			// 	'as' => 'add',
+			// 	'uses' => 'BusTripController@getAdd'
+			// ]);
+			// Route::post('/store', [
+			// 	'as' => 'store',
+			// 	'uses' => 'BusTripController@postAdd'
+			// ]);
+			// Route::get('/edit/{id}', [
+			// 	'as' => 'edit',
+			// 	'uses' => 'BusTripController@getEdit'
+			// ]);
+			// Route::post('/update/{id}', [
+			// 	'as' => 'update',
+			// 	'uses' => 'BusTripController@postEdit'
+			// ]);
+			// Route::post('/delete/{id}', [
+			// 	'as' => 'delete',
+			// 	'uses' => 'BusTripController@postDelete'
+			// ]);
+			// Route::post('/delete-selected', [
+			// 	'as' => 'delete_selected',
+			// 	'uses' => 'BusTripController@postDeleteSelected'
+			// ]);
 		});
 	});
 });

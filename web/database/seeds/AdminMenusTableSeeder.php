@@ -125,6 +125,39 @@ class AdminMenusTableSeeder extends Seeder
                 'parent_id'     => 8,
                 'order'         => 2
             ],
+            [
+                'id'            => 11,
+                'index'         => 'locations',
+                'permission_id' => null,
+                'name'          => 'Location management',
+                'icon'          => 'map-marker',
+                'route'         => null,
+                'level'         => 1,
+                'parent_id'     => null,
+                'order'         => 5
+            ],
+            [
+                'id'            => 12,
+                'index'         => 'locations.list',
+                'permission_id' => 18,
+                'name'          => 'Location list',
+                'icon'          => 'list',
+                'route'         => 'admin.locations.index',
+                'level'         => 2,
+                'parent_id'     => 11,
+                'order'         => 1
+            ],
+            [
+                'id'            => 13,
+                'index'         => 'locations.add',
+                'permission_id' => 19,
+                'name'          => 'Add location',
+                'icon'          => 'plus',
+                'route'         => 'admin.locations.add',
+                'level'         => 2,
+                'parent_id'     => 11,
+                'order'         => 2
+            ],
         ];
 
         DB::table('admin_menus')->insert($menus);

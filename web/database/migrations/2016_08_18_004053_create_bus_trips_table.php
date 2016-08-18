@@ -14,8 +14,10 @@ class CreateBusTripsTable extends Migration
     {
         Schema::create('bus_trips', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('start_location')->unsigned()->nullbale();
-            $table->integer('end_location')->unsigned()->nullbale();
+            $table->integer('start_location')->unsigned()->nullable();
+            $table->integer('end_location')->unsigned()->nullable();
+            $table->string('start_point')->nullable();
+            $table->string('end_point')->nullable();
             $table->string('start_time', 16)->nullable();
             $table->string('end_time', 16)->nullable();
             $table->string('seat_type')->nullable();
